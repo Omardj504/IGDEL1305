@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Números Pares</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .contenedor {
+        background: white;
+        width: 400px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #aaa;
+    }
+
+    input, button {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h2>Filtro de Números Pares</h2>
+
+<input type="number" id="limite"
+       placeholder="Ingrese límite N">
+
+<button onclick="buscarPares()">Mostrar pares</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+function buscarPares() {
+
+    let limite = Number(document.getElementById("limite").value);
+    let resultado = document.getElementById("resultado");
+
+    resultado.innerHTML = "";
+
+    for (let i = 1; i <= limite; i++) {
+
+        if (i % 2 === 0) {
+            resultado.innerHTML += i + " ";
+        }
+    }
+}
+</script>
+
+</body>
+</html>

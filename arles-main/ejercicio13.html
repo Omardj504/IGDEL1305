@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pirámide de Asteriscos</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .contenedor {
+        background: white;
+        width: 400px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #aaa;
+    }
+
+    input, button {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        color: white;
+    }
+
+    #resultado {
+        font-family: monospace;
+        font-size: 20px;
+        line-height: 1.4;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h2>Pirámide de Asteriscos</h2>
+
+<input type="number" id="filas"
+       placeholder="Cantidad de filas">
+
+<button onclick="generarPiramide()">Generar</button>
+
+<div id="resultado"></div>
+
+</div>
+
+<script>
+function generarPiramide() {
+
+    let filas = Number(document.getElementById("filas").value);
+    let resultado = document.getElementById("resultado");
+
+    resultado.innerHTML = "";
+
+    for (let i = 1; i <= filas; i++) {
+
+        let linea = "";
+
+        for (let j = 1; j <= i; j++) {
+            linea += "*";
+        }
+
+        resultado.innerHTML += linea + "<br>";
+    }
+}
+</script>
+
+</body>
+</html>

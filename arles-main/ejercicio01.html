@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificación de Edad</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .contenedor {
+        background: white;
+        width: 350px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #aaa;
+    }
+
+    input, button {
+        padding: 10px;
+        margin: 10px;
+        width: 80%;
+    }
+
+    button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    #resultado {
+        font-weight: bold;
+        margin-top: 20px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+    <h2>Verificación de Edad</h2>
+
+<input type="number" id="edad" placeholder="Ingrese su edad">
+
+<button onclick="verificarEdad()">Verificar</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+function verificarEdad() {
+
+    let edad = Number(document.getElementById("edad").value);
+    let resultado = document.getElementById("resultado");
+
+    if (edad >= 18) {
+        resultado.textContent = "Tiene la edad suficiente para votar.";
+    } else {
+        resultado.textContent = "Aún no tiene la edad suficiente para votar.";
+    }
+}
+</script>
+
+</body>
+</html>

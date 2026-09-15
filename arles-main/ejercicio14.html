@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Promedio Final</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .contenedor {
+        background: white;
+        width: 450px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #aaa;
+    }
+
+    input, button {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+    }
+
+    #notas {
+        margin-top: 20px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h2>Calculadora de Promedio Final</h2>
+
+<input type="number" id="cantidad"
+       min="1"
+       placeholder="Cantidad de notas">
+
+<button onclick="ingresarNotas()">Ingresar notas</button>
+
+<div id="notas"></div>
+
+<button onclick="calcularPromedio()">
+    Calcular promedio
+</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+
+function ingresarNotas() {
+
+    let cantidad = Number(document.getElementById("cantidad").value);
+    let notas = document.getElementById("notas");
+
+    notas.innerHTML = "";
+
+    for (let i = 1; i <= cantidad; i++) {
+
+        notas.innerHTML +=
+            '<input type="number" class="nota" min="0" max="100" ' +
+            'placeholder="Nota ' + i + '"><br>';
+    }
+}
+
+function calcularPromedio() {
+
+    let campos = document.querySelectorAll(".nota");
+    let resultado = document.getElementById("resultado");
+
+    if (campos.length === 0) {
+        resultado.textContent =
+            "Primero ingrese la cantidad de notas.";
+        return;
+    }
+
+    let suma = 0;
+
+    for (let i = 0; i < campos.length; i++) {
+
+        suma += Number(campos[i].value);
+    }
+
+    let promedio = suma / campos.length;
+
+    if (promedio >= 70) {
+
+        resultado.style.color = "green";
+
+        resultado.textContent =
+            "Promedio final: " + promedio.toFixed(2) +
+            " - Aprobado";
+
+    } else {
+
+        resultado.style.color = "red";
+
+        resultado.textContent =
+            "Promedio final: " + promedio.toFixed(2) +
+            " - Reprobado";
+    }
+}
+
+</script>
+
+</body>
+</html>

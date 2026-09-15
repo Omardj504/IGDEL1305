@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Estaciones del Año</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .contenedor {
+        background: white;
+        width: 380px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #aaa;
+    }
+
+    select, button {
+        padding: 10px;
+        margin: 10px;
+        width: 80%;
+    }
+
+    button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h2>Estación del Año</h2>
+
+<select id="mes">
+    <option value="">Seleccione un mes</option>
+    <option value="1">Enero</option>
+    <option value="2">Febrero</option>
+    <option value="3">Marzo</option>
+    <option value="4">Abril</option>
+    <option value="5">Mayo</option>
+    <option value="6">Junio</option>
+    <option value="7">Julio</option>
+    <option value="8">Agosto</option>
+    <option value="9">Septiembre</option>
+    <option value="10">Octubre</option>
+    <option value="11">Noviembre</option>
+    <option value="12">Diciembre</option>
+</select>
+
+<button onclick="mostrarEstacion()">Consultar</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+function mostrarEstacion() {
+
+    let mes = Number(document.getElementById("mes").value);
+    let resultado = document.getElementById("resultado");
+
+    switch (mes) {
+
+        case 12:
+        case 1:
+        case 2:
+            resultado.textContent = "Invierno";
+            break;
+
+        case 3:
+        case 4:
+        case 5:
+            resultado.textContent = "Primavera";
+            break;
+
+        case 6:
+        case 7:
+        case 8:
+            resultado.textContent = "Verano";
+            break;
+
+        case 9:
+        case 10:
+        case 11:
+            resultado.textContent = "Otoño";
+            break;
+
+        default:
+            resultado.textContent = "Seleccione un mes.";
+    }
+}
+</script>
+
+</body>
+</html>

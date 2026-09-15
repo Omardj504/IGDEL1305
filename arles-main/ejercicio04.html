@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparación de Números</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .contenedor {
+        background: white;
+        width: 350px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #aaa;
+    }
+
+    input, button {
+        padding: 10px;
+        margin: 8px;
+    }
+
+    button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h2>Comparación de Números</h2>
+
+<input type="number" id="numero1" placeholder="Primer número">
+
+<input type="number" id="numero2" placeholder="Segundo número">
+
+<button onclick="comparar()">Comparar</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+function comparar() {
+
+    let numero1 = Number(document.getElementById("numero1").value);
+    let numero2 = Number(document.getElementById("numero2").value);
+    let resultado = document.getElementById("resultado");
+
+    if (numero1 > numero2) {
+        resultado.textContent = "El número mayor es: " + numero1;
+    } else if (numero2 > numero1) {
+        resultado.textContent = "El número mayor es: " + numero2;
+    } else {
+        resultado.textContent = "Los dos números son iguales.";
+    }
+}
+</script>
+
+</body>
+</html>

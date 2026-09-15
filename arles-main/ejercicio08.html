@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .contenedor {
+        background: white;
+        width: 400px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #aaa;
+    }
+
+    input, button {
+        padding: 12px;
+        margin: 5px;
+    }
+
+    button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h2>Calculadora Básica</h2>
+
+<input type="number" id="numero1" placeholder="Primer número">
+
+<input type="number" id="numero2" placeholder="Segundo número">
+
+<br>
+
+<button onclick="calcular('+')">Suma</button>
+<button onclick="calcular('-')">Resta</button>
+<button onclick="calcular('*')">Multiplicación</button>
+<button onclick="calcular('/')">División</button>
+
+<h3 id="resultado"></h3>
+
+</div>
+
+<script>
+function calcular(operacion) {
+
+    let numero1 = Number(document.getElementById("numero1").value);
+    let numero2 = Number(document.getElementById("numero2").value);
+    let resultado = document.getElementById("resultado");
+
+    let respuesta;
+
+    switch (operacion) {
+
+        case "+":
+            respuesta = numero1 + numero2;
+            break;
+
+        case "-":
+            respuesta = numero1 - numero2;
+            break;
+
+        case "*":
+            respuesta = numero1 * numero2;
+            break;
+
+        case "/":
+
+            if (numero2 === 0) {
+                resultado.textContent = "No se puede dividir entre cero.";
+                return;
+            }
+
+            respuesta = numero1 / numero2;
+            break;
+    }
+
+    resultado.textContent = "Resultado: " + respuesta;
+}
+</script>
+
+</body>
+</html>

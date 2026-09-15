@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Día de la Semana</title>
+
+<style>
+    body {
+        font-family: Arial;
+        text-align: center;
+        background: #f2f2f2;
+        padding: 50px;
+    }
+
+    .contenedor {
+        background: white;
+        padding: 30px;
+        width: 350px;
+        margin: auto;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #aaa;
+    }
+
+    input, button {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h2>Día de la Semana</h2>
+
+<input type="number" id="dia" min="1" max="7"
+       placeholder="Número 1 - 7">
+
+<button onclick="mostrarDia()">Mostrar</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+function mostrarDia() {
+
+    let dia = Number(document.getElementById("dia").value);
+    let resultado = document.getElementById("resultado");
+
+    switch (dia) {
+
+        case 1:
+            resultado.textContent = "Lunes";
+            break;
+
+        case 2:
+            resultado.textContent = "Martes";
+            break;
+
+        case 3:
+            resultado.textContent = "Miércoles";
+            break;
+
+        case 4:
+            resultado.textContent = "Jueves";
+            break;
+
+        case 5:
+            resultado.textContent = "Viernes";
+            break;
+
+        case 6:
+            resultado.textContent = "Sábado";
+            break;
+
+        case 7:
+            resultado.textContent = "Domingo";
+            break;
+
+        default:
+            resultado.textContent = "Error: ingrese un número del 1 al 7.";
+    }
+}
+</script>
+
+</body>
+</html>

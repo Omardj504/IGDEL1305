@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Moneda</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        text-align: center;
+        padding: 40px;
+    }
+
+    .contenedor {
+        background: white;
+        width: 400px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #aaa;
+    }
+
+    input, select, button {
+        padding: 12px;
+        margin: 5px;
+    }
+
+    button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #1d4ed8;
+    }
+
+    .resultado {
+        margin-top: 20px;
+        padding: 15px;
+        background: #f2f2f2;
+        border-radius: 8px;
+    }
+
+    .volver {
+        display: inline-block;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #2563eb;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h1>Conversor de Moneda</h1>
+
+<p>Ingrese una cantidad:</p>
+
+<input
+    type="number"
+    id="cantidad"
+    min="0"
+    step="0.01"
+    placeholder="Cantidad"
+>
+
+<br>
+
+<p>Moneda de origen:</p>
+
+<select id="origen">
+
+    <option value="">Seleccione una moneda</option>
+
+    <option value="lempira">Lempiras</option>
+
+    <option value="dolar">Dólares</option>
+
+    <option value="euro">Euros</option>
+
+</select>
+
+<p>Moneda de destino:</p>
+
+<select id="destino">
+
+    <option value="">Seleccione una moneda</option>
+
+    <option value="lempira">Lempiras</option>
+
+    <option value="dolar">Dólares</option>
+
+    <option value="euro">Euros</option>
+
+</select>
+
+<br>
+
+<button onclick="convertir()">Convertir</button>
+
+<div id="resultado" class="resultado"></div>
+
+<a href="index.html" class="volver">← Volver al menú</a>
+
+</div>
+
+<script>
+
+function convertir() {
+
+    let cantidad =
+        Number(document.getElementById("cantidad").value);
+
+    let origen =
+        document.getElementById("origen").value;
+
+    let destino =
+        document.getElementById("destino").value;
+
+    let resultado =
+        document.getElementById("resultado");
+
+    let conversion;
+
+
+    if (cantidad < 0 || isNaN(cantidad)) {
+
+        resultado.textContent =
+            "Ingrese una cantidad válida.";
+
+        return;
+    }
+
+
+    if (origen === "" || destino === "") {
+
+        resultado.textContent =
+            "Seleccione la moneda de origen y destino.";
+
+        return;
+    }
+
+
+    switch (origen) {
+
+
+        // ==========================
+        // LEMPIRAS
+        // ==========================
+
+        case "lempira":
+
+            switch (destino) {
+
+                case "dolar":
+
+                    conversion = cantidad / 27;
+
+                    resultado.innerHTML =
+                        cantidad.toFixed(2) +
+                        " Lempiras = $" +
+                        conversion.toFixed(2) +
+                        " Dólares";
+
+                    break;
+
+
+                case "euro":
+
+                    conversion = cantidad / 31;
+
+                    resultado.innerHTML =
+                        cantidad.toFixed(2) +
+                        " Lempiras = €" +
+                        conversion.toFixed(2) +
+                        " Euros";
+
+                    break;
+
+
+                case "lempira":
+
+                    conversion = cantidad;
+
+                    resultado.innerHTML =
+                        cantidad.toFixed(2) +
+                        " Lempiras = L " +
+                        conversion.toFixed(2);
+
+                    break;
+
+            }
+
+            break;
+
+
+        // ==========================
+        // DÓLARES
+        // ==========================
+
+        case "dolar":
+
+            switch (destino) {
+
+                case "lempira":
+
+                    conversion = cantidad * 27;
+
+                    resultado.innerHTML =
+                        "$" +
+                        cantidad.toFixed(2) +
+                        " Dólares = L " +
+                        conversion.toFixed(2) +
+                        " Lempiras";
+
+                    break;
+
+
+                case "euro":
+
+                    conversion = (cantidad * 27) / 31;
+
+                    resultado.innerHTML =
+                        "$" +
+                        cantidad.toFixed(2) +
+                        " Dólares = €" +
+                        conversion.toFixed(2) +
+                        " Euros";
+
+                    break;
+
+
+                case "dolar":
+
+                    conversion = cantidad;
+
+                    resultado.innerHTML =
+                        "$" +
+                        cantidad.toFixed(2) +
+                        " Dólares = $" +
+                        conversion.toFixed(2);
+
+                    break;
+
+            }
+
+            break;
+
+
+        // ==========================
+        // EUROS
+        // ==========================
+
+        case "euro":
+
+            switch (destino) {
+
+                case "lempira":
+
+                    conversion = cantidad * 31;
+
+                    resultado.innerHTML =
+                        "€" +
+                        cantidad.toFixed(2) +
+                        " Euros = L " +
+                        conversion.toFixed(2) +
+                        " Lempiras";
+
+                    break;
+
+
+                case "dolar":
+
+                    conversion = (cantidad * 31) / 27;
+
+                    resultado.innerHTML =
+                        "€" +
+                        cantidad.toFixed(2) +
+                        " Euros = $" +
+                        conversion.toFixed(2) +
+                        " Dólares";
+
+                    break;
+
+
+                case "euro":
+
+                    conversion = cantidad;
+
+                    resultado.innerHTML =
+                        "€" +
+                        cantidad.toFixed(2) +
+                        " Euros = €" +
+                        conversion.toFixed(2);
+
+                    break;
+
+            }
+
+            break;
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

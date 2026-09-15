@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Tarifario de Peaje</title>
+
+<style>
+    body {
+        font-family: Arial;
+        background: #f2f2f2;
+        text-align: center;
+        padding: 50px;
+    }
+
+    .contenedor {
+        background: white;
+        width: 400px;
+        margin: auto;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 15px #aaa;
+    }
+
+    select, button {
+        padding: 12px;
+        margin: 10px;
+        width: 80%;
+    }
+
+    button {
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 8px;
+    }
+</style>
+
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<h2>Tarifario de Peaje</h2>
+
+<select id="vehiculo">
+    <option value="">Seleccione vehículo</option>
+    <option value="moto">Moto</option>
+    <option value="auto">Auto</option>
+    <option value="autobus">Autobús</option>
+    <option value="camion">Camión</option>
+</select>
+
+<button onclick="calcularPeaje()">Consultar tarifa</button>
+
+<p id="resultado"></p>
+
+</div>
+
+<script>
+function calcularPeaje() {
+
+    let vehiculo = document.getElementById("vehiculo").value;
+    let resultado = document.getElementById("resultado");
+
+    let tarifa;
+
+    switch (vehiculo) {
+
+        case "moto":
+            tarifa = 20;
+            break;
+
+        case "auto":
+            tarifa = 50;
+            break;
+
+        case "autobus":
+            tarifa = 100;
+            break;
+
+        case "camion":
+            tarifa = 150;
+            break;
+
+        default:
+            resultado.textContent = "Seleccione un vehículo.";
+            return;
+    }
+
+    resultado.textContent =
+        "Tarifa de peaje: L " + tarifa.toFixed(2);
+}
+</script>
+
+</body>
+</html>
