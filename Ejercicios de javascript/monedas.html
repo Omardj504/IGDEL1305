@@ -1,0 +1,125 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Conversor de monedas</h1>
+    <label for="moneda1">Ingrese cantidad:</label>
+    <input type="number" id="moneda1" placeholder="Ingrese un Lempiras">
+    <br>
+    <label for="moneda1">Seleciones moneda</label>   
+    <br>
+    <select name="monedas" id="monedas">
+        <option value="Dolares">Dolares</option>
+        <option value="Pesos">Pesos</option>
+        <option value="Euros">Euros</option>
+        <option value="Libras">Libras</option>
+        <option value="Yenes">Yenes</option>
+        <option value="Rupias">Rupias</option>   
+    </select>
+    <button id="ButtonMoneda">Convertir</button>
+    <br>
+    <br>
+
+    <label for="moneda2">Ingrese cantidad:</label>
+    <input type="number" id="moneda2" placeholder="Ingrese un Dolares">
+    <br>
+    <label for="moneda2">Seleciones moneda</label>   
+    <br>
+    <select name="monedas2" id="monedas2">
+        <option value="Lempiras">Lempiras</option>
+        <option value="Pesos">Pesos</option>
+        <option value="Euros">Euros</option>
+        <option value="Libras">Libras</option>
+        <option value="Yenes">Yenes</option>
+        <option value="Rupias">Rupias</option>   
+    </select>
+    <button id="ButtonMoneda2">Convertir</button>
+<script>
+        let monedas = document.getElementById("monedas");
+        let monedas2 = document.getElementById("monedas2");
+        let calcularButton1 = document.getElementById("ButtonMoneda");
+        let calcularButton2 = document.getElementById("ButtonMoneda2");
+        let moneda1 = document.getElementById("moneda1");
+        let moneda2 = document.getElementById("moneda2");
+        
+        calcularButton1.addEventListener("click", function() {
+            switch (monedas.value) {
+                case "Dolares":
+                    alert("1 Dolar = 18.50 Lempiras");
+                    let dolares = moneda1.value * 0.037;
+                    alert("El resultado es: " + dolares);
+                    break;
+                case "Euros":
+                    alert("1 Euro = 20.00 Lempiras");
+                    let euros = moneda1.value * 0.032;
+                    alert("El resultado es: " + euros);
+                    break;
+                case "Libras":
+                    alert("1 Libra = 23.00 Lempiras");
+                    let libras = moneda1.value * 0.028;
+                    alert("El resultado es: " + libras);
+                    break;
+                case "Yenes":
+                    alert("1 Yen = 0.17 Lempiras");
+                    let yenes = moneda1.value * 5.78;
+                    alert("El resultado es: " + yenes);
+                    break;
+                case "Rupias":
+                    alert("1 Rupia = 0.25 Lempiras");
+                    let rupias = moneda1.value * 3.57;
+                    alert("El resultado es: " + rupias);
+                    break;
+                case "Pesos":
+                    alert("1 Peso = 0.50 Lempiras");
+                    let pesos = moneda1.value * 17.50;
+                    alert("El resultado es: " + pesos);
+                    break;
+                default:
+                    alert("Moneda no valida");
+            }
+        });
+        calcularButton2.addEventListener("click", function() {
+            switch(monedas2.value) {
+                case "Lempiras":
+                    alert("1 Dolar = 26.83 Lempiras");
+                    let lempiras = moneda2.value * 26.83;
+                    alert("El resultado es: " + lempiras);
+                    break;
+                case "Euros":
+                    alert("1 Dolar = 0.87 Euros");
+                    let euros = moneda2.value * 0.87;
+                    alert("El resultado es: " + euros);
+                     break;
+                case "Libras":
+                    alert("1 Dolar = 0.74 Libras");
+                    let libras = moneda2.value * 0.74;
+                    alert("El resultado es: " + libras);
+                    break;
+                case "Yenes":
+                    alert("1 Dolar = 154.82 Yenes");
+                    let yenes = moneda2.value * 154.82;
+                    alert("El resultado es: " + yenes);
+                     break;
+                case "Rupias":
+                    alert("1 Dolar = 95.84 Rupias");
+                    let rupias = moneda2.value * 95.84;
+                    alert("El resultado es: " + rupias);
+                    break;
+                case "Pesos":
+                    alert("1 Dolar = 22.80 Pesos Mexicanos");
+                    let pesos = moneda2.value * 22.80;
+                    alert("El resultado es: " + pesos);
+                     break;
+                default:
+                    alert("Moneda no valida");
+            }
+        });
+</script>
+</body>
+</html>
