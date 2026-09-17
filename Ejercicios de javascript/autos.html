@@ -1,0 +1,68 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Autos</h1>
+    <label for="Vehiculos">Seleciones Vehiculo</label>   
+    <br>
+    <select name="Vehiculos" id="Vehiculos">
+        <option value="Todoterreno">Todoterreno</option>
+        <option value="Pickup">Pickup</option>
+        <option value="Camioneta">Camioneta</option>
+        <option value="SUV">SUV</option>
+        <option value="Deportivo">Deportivo</option>
+        <option value="Luxury">Luxury</option>   
+    </select>
+    <button id="ButtonMoneda">Elegir</button>
+    <script>
+        let Vehiculos = document.getElementById("Vehiculos");
+        let calcularButton1 = document.getElementById("ButtonMoneda");
+        calcularButton1.addEventListener("click", function() {
+            switch (Vehiculos.value) {
+                case "Todoterreno":
+                    costosemanal= 30 ;
+                    vehiculo = "Todoterreno";
+                    alert("Vehículo diseñado para circular tanto en carretera como en terrenos difíciles, con mayor capacidad de tracción y suspensión reforzada.");
+                    alert("El costo semanal es: " + costosemanal  + " para el vehículo: " + vehiculo);
+                    break;
+                case "Pickup":  
+                    costosemanal = 30 ;
+                    vehiculo = "Pickup";    
+                    alert("Vehículo de carga y transporte, con una caja abierta en la parte trasera para transportar objetos y materiales.");
+                    alert("El costo semanal es: " + costosemanal  + " para el vehículo: " + vehiculo);
+                    break;
+                case "Camioneta":
+                    costosemanal = 25 ;
+                    vehiculo = "Camioneta";
+                    alert("Vehículo destinado principalmente al transporte de pasajeros y objetos, con espacio amplio y carrocería elevada..");
+                    alert("El costo semanal es: " + costosemanal  + " para el vehículo: " + vehiculo);
+                    break;
+                case "SUV":
+                    costosemanal = 30 ;
+                    vehiculo = "SUV";
+                    alert("Vehículo de tipo SUV, ideal para uso en carretera y terrenos difíciles, con mayor capacidad de tracción y suspensión reforzada.");
+                    alert("El costo semanal es: " + costosemanal  + " para el vehículo: " + vehiculo);
+                    break;
+                case "Deportivo":
+                    costosemanal = 3000 ;
+                    vehiculo = "Deportivo";
+                    alert("Vehículo diseñado para alto rendimiento y manejo deportivo, con características aerodinámicas y motor potente.");
+                    alert("El costo semanal es: " + costosemanal  + " para el vehículo: " + vehiculo);
+                    break;
+                case "Luxury":
+                    costosemanal = 30 ;
+                    vehiculo = "Luxury";
+                    alert("Vehículo de lujo, con acabados de alta calidad y características premium.");
+                    alert("El costo semanal es: " + costosemanal  + " para el vehículo: " + vehiculo);
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>        

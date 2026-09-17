@@ -1,0 +1,86 @@
+<!Doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <label for="numero1">Ingrese un numero:</label>   
+    <input type="number" id="numero1" name="numero1" placeholder="Ingrese un numero">
+     <br>
+    <label for="numero2">Ingrese un numero:</label>
+    <input type="number" id="numero2" name="numero2" placeholder="Ingrese un numero">
+    <br>
+    <button id="ButtonMultiplicacion">Multiplicar</button>
+    <br>
+    <button id="ButtonDivision">Dividir</button>
+    <br>
+    <button id="ButtonSuma">Sumar</button>
+    <br>
+    <button id="ButtonResta">Restar</button>
+<script>
+let numero1 = document.getElementById("numero1");
+let numero2 = document.getElementById("numero2");
+
+let calcularButton1 = document.getElementById("ButtonMultiplicacion");
+let calcularButton2 = document.getElementById("ButtonDivision");
+let calcularButton3 = document.getElementById("ButtonSuma");
+let calcularButton4 = document.getElementById("ButtonResta");
+
+let operacion;
+
+calcularButton1.addEventListener("click", function() {
+    operacion = "multiplicacion";
+    calcular();
+});
+
+calcularButton2.addEventListener("click", function() {
+    operacion = "division";
+    calcular();
+});
+
+calcularButton3.addEventListener("click", function() {
+    operacion = "suma";
+    calcular();
+});
+
+calcularButton4.addEventListener("click", function() {
+    operacion = "resta";
+    calcular();
+});
+
+
+function calcular() {
+
+    let n1 = Number(numero1.value);
+    let n2 = Number(numero2.value);
+
+    switch (operacion) {
+
+        case "multiplicacion":
+            alert("El resultado es: " + (n1 * n2));
+            break;
+
+        case "division":
+            alert("El resultado es: " + (n1 / n2));
+            break;
+
+        case "suma":
+            alert("El resultado es: " + (n1 + n2));
+            break;
+
+        case "resta":
+            alert("El resultado es: " + (n1 - n2));
+            break;
+
+        default:
+            alert("Operación no válida");
+    }
+}
+
+</script>
+</body>
+</html> 
